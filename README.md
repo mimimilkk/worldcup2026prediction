@@ -1,1 +1,1 @@
-# worldcup2026prediction
+# worldcup2026
