@@ -670,8 +670,16 @@ function renderMatchPredictions() {
       ${matches.map(m => renderMatchCard(m)).join('')}
     </div>`).join('');
 }
+  
+function isMatchLocked(matchDate) {
+  const kickoff = new Date(`${matchDate}, 2026`);
+  const now = new Date();
 
+  return now >= kickoff;
+}
+  
 function renderMatchCard(m) {
+  const locked = isMatchLocked(m.date);
   const aH = m.actualHome, aA = m.actualAway;
   const hasResult = aH !== null && aA !== null;
   const scoreDisplay = hasResult
@@ -694,9 +702,9 @@ function renderMatchCard(m) {
         return `<tr>
           <td>${member}</td>
           <td><div class="pred-score-inputs">
-            <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${pred.home !== undefined && pred.home !== '' ? pred.home : ''}" onchange="setPred('${m.id}','${member.replace(/'/g,"\\'")}','home',this.value)">
+            <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${locked ? 'disabled' : ''}> ${pred.home !== undefined && pred.home !== '' ? pred.home : ''}" onchange="setPred('${m.id}','${member.replace(/'/g,"\\'")}','home',this.value)">
             <span class="score-dash">–</span>
-            <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${pred.away !== undefined && pred.away !== '' ? pred.away : ''}" onchange="setPred('${m.id}','${member.replace(/'/g,"\\'")}','away',this.value)">
+            <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${locked ? 'disabled' : ''}> ${pred.away !== undefined && pred.away !== '' ? pred.away : ''}" onchange="setPred('${m.id}','${member.replace(/'/g,"\\'")}','away',this.value)">
           </div></td>
           <td style="text-align:center">${ptsBadge(calcPoints(aH, aA, pred.home, pred.away))}</td>
         </tr>`;
@@ -704,6 +712,10 @@ function renderMatchCard(m) {
     </table>` : `<p style="font-size:0.8rem;color:var(--mid);padding:8px 0">Add members to enter predictions.</p>`;
 
   const isOpen = openCards.has(m.id) ? 'open' : '';
+  const locked = isMatchLocked(m.date);
+  const lockBadge = locked
+    ? '<span class="match-lock">🔒 Closed</span>'
+    : '<span class="match-lock-open">🟢 Open</span>';
   return `<div class="match-card ${isOpen}" id="card-${m.id}">
     <div class="match-header" onclick="toggleCard('${m.id}')">
       <div class="match-teams">
@@ -712,6 +724,7 @@ function renderMatchCard(m) {
         <div class="team-name right">${m.away}</div>
       </div>
       ${scoreDisplay}
+      ${lockBadge}
       <span class="match-toggle">▼</span>
     </div>
     <div class="match-body">${predBody}</div>
