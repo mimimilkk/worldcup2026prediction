@@ -703,14 +703,17 @@ function renderMatchCard(m) {
     </table>` : `<p style="font-size:0.8rem;color:var(--mid);padding:8px 0">Add members to enter predictions.</p>`;
 
   return `<div class="match-card" id="card-${m.id}">
-    <div class="match-header" onclick="toggleCard('${m.id}')">
+    <div class="match-header" 
       <div class="match-teams">
         <div class="team-name">${m.home}</div>
         <div class="vs-block"><div class="vs-label">vs</div><div class="match-date">${m.date}</div></div>
         <div class="team-name right">${m.away}</div>
       </div>
       ${scoreDisplay}
-      <span class="match-toggle">▼</span>
+      <span class="match-toggle"
+      onclick="event.stopPropagation();toggleCard('${m.id}')">
+  ▼
+</span>
     </div>
     <div class="match-body">${predBody}</div>
   </div>`;
