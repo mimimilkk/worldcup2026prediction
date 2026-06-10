@@ -134,57 +134,34 @@
   .vs-block .vs-label { font-size: 0.6rem; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; }
   .vs-block .match-date { font-size: 0.65rem; color: var(--mid); margin-top: 2px; font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
 
-   .match-result-badge {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--gold);
-    min-width: 52px;
-    text-align: center;
-    flex-shrink: 0;
-  }
-  
-  .match-result-badge.not-set {
-    color: var(--mid);
-    font-size: 0.7rem;
-  }
-  
-  .match-lock,
-  .match-lock-open {
-    font-size: 0.58rem;
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: 1px;
-    font-weight: 700;
-    padding: 2px 5px;
-    border-radius: 4px;
-    margin-left: 6px;   /* add */
-    flex-shrink: 0;     /* add */
-  }
-  
-  .match-lock {
-    background: rgba(255, 107, 107, 0.15);
-    color: #ff6b6b;
-  }
-  
-  .match-lock-open {
-    background: rgba(76, 175, 80, 0.15);
-    color: #4caf50;
-  }
-  
-  .match-toggle {
-    color: var(--mid);
-    font-size: 0.75rem;
-    flex-shrink: 0;
-    transition: transform 0.2s;
-    margin-left: 4px;
-  }
-  
-  .match-card.open .match-toggle {
-    transform: rotate(180deg);
+  .match-result-badge { font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 600; color: var(--gold); min-width: 52px; text-align: center; flex-shrink: 0; }
+  .match-result-badge.not-set { color: var(--mid); font-size: 0.7rem; }
+  .match-toggle { color: var(--mid); font-size: 0.75rem; flex-shrink: 0; transition: transform 0.2s; margin-left: 4px; }
+  .match-card.open .match-toggle { transform: rotate(180deg); }
 
   .match-body { display: none; padding: 0 14px 16px; border-top: 1px solid var(--border); }
   .match-card.open .match-body { display: block; }
 
+  .match-lock,
+  .match-lock-open {
+  font-size: 0.58rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 4px;
+  }
+
+  .match-lock {
+  background: rgba(255, 107, 107, 0.15);
+  color: #ff6b6b;
+  }
+
+  .match-lock-open {
+  background: rgba(76, 175, 80, 0.15);
+  color: #4caf50;
+  }
+  
   /* Actual score row */
   .actual-score-row { display: flex; align-items: center; gap: 10px; padding: 12px 0 14px; border-bottom: 1px solid var(--border); margin-bottom: 12px; flex-wrap: wrap; }
   .actual-score-row label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); font-weight: 600; }
@@ -602,6 +579,8 @@ const INITIAL_MATCHES = [
 
 // FINAL
 { id:"fin", group:"🏆 FINAL", home:"Winner SF-1", away:"Winner SF-2", date:"Jul 19" }
+
+
   
 ];
 
