@@ -702,9 +702,9 @@ function renderMatchCard(m) {
         return `<tr>
           <td>${member}</td>
           <td><div class="pred-score-inputs">
-            <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${pred.home !== undefined && pred.home !== '' ? pred.home : ''}"${locked ? 'disabled' : ''}> onchange="setPred('${m.id}','${member.replace(/'/g,"\\'")}','home',this.value)">
+            <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${pred.home !== undefined && pred.home !== '' ? pred.home : ''}" ${locked ? 'disabled' : ''} onchange="setPred('${m.id}','${member.replace(/'/g,"\\'")}','home',this.value)">
             <span class="score-dash">–</span>
-            <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${pred.away !== undefined && pred.away !== '' ? pred.away : ''}"${locked ? 'disabled' : ''}> onchange="setPred('${m.id}','${member.replace(/'/g,"\\'")}','away',this.value)">
+            <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${pred.away !== undefined && pred.away !== '' ? pred.away : ''}" ${locked ? 'disabled' : ''} onchange="setPred('${m.id}','${member.replace(/'/g,"\\'")}','away',this.value)">
           </div></td>
           <td style="text-align:center">${ptsBadge(calcPoints(aH, aA, pred.home, pred.away))}</td>
         </tr>`;
