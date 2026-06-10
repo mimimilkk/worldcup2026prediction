@@ -134,10 +134,53 @@
   .vs-block .vs-label { font-size: 0.6rem; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; }
   .vs-block .match-date { font-size: 0.65rem; color: var(--mid); margin-top: 2px; font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
 
-  .match-result-badge { font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 600; color: var(--gold); min-width: 52px; text-align: center; flex-shrink: 0; }
-  .match-result-badge.not-set { color: var(--mid); font-size: 0.7rem; }
-  .match-toggle { color: var(--mid); font-size: 0.75rem; flex-shrink: 0; transition: transform 0.2s; margin-left: 4px; }
-  .match-card.open .match-toggle { transform: rotate(180deg); }
+   .match-result-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gold);
+    min-width: 52px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  
+  .match-result-badge.not-set {
+    color: var(--mid);
+    font-size: 0.7rem;
+  }
+  
+  .match-lock,
+  .match-lock-open {
+    font-size: 0.58rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-left: 6px;   /* add */
+    flex-shrink: 0;     /* add */
+  }
+  
+  .match-lock {
+    background: rgba(255, 107, 107, 0.15);
+    color: #ff6b6b;
+  }
+  
+  .match-lock-open {
+    background: rgba(76, 175, 80, 0.15);
+    color: #4caf50;
+  }
+  
+  .match-toggle {
+    color: var(--mid);
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+    margin-left: 4px;
+  }
+  
+  .match-card.open .match-toggle {
+    transform: rotate(180deg);
 
   .match-body { display: none; padding: 0 14px 16px; border-top: 1px solid var(--border); }
   .match-card.open .match-body { display: block; }
@@ -507,6 +550,59 @@ const INITIAL_MATCHES = [
   { id:"m70", group:"Group L", home:"Croatia", away:"Panama", date:"Jun 22" },
   { id:"m71", group:"Group L", home:"England", away:"Panama", date:"Jun 29" },
   { id:"m72", group:"Group L", home:"Croatia", away:"Ghana", date:"Jun 29" }
+
+// ROUND OF 32
+{ id:"r32_1", group:"Round of 32", home:"2A", away:"2B", date:"Jun 28" },
+
+{ id:"r32_2", group:"Round of 32", home:"1E", away:"Best 3rd", date:"Jun 29" },
+{ id:"r32_3", group:"Round of 32", home:"1F", away:"2C", date:"Jun 29" },
+{ id:"r32_4", group:"Round of 32", home:"1C", away:"2F", date:"Jun 29" },
+
+{ id:"r32_5", group:"Round of 32", home:"1I", away:"Best 3rd", date:"Jun 30" },
+{ id:"r32_6", group:"Round of 32", home:"2E", away:"2I", date:"Jun 30" },
+{ id:"r32_7", group:"Round of 32", home:"1A", away:"Best 3rd", date:"Jun 30" },
+
+{ id:"r32_8", group:"Round of 32", home:"1B", away:"Best 3rd", date:"Jul 1" },
+{ id:"r32_9", group:"Round of 32", home:"1D", away:"Best 3rd", date:"Jul 1" },
+{ id:"r32_10", group:"Round of 32", home:"1G", away:"2L", date:"Jul 1" },
+
+{ id:"r32_11", group:"Round of 32", home:"1H", away:"2J", date:"Jul 2" },
+{ id:"r32_12", group:"Round of 32", home:"1J", away:"2H", date:"Jul 2" },
+{ id:"r32_13", group:"Round of 32", home:"1K", away:"2G", date:"Jul 2" },
+
+{ id:"r32_14", group:"Round of 32", home:"1L", away:"2K", date:"Jul 3" },
+{ id:"r32_15", group:"Round of 32", home:"2D", away:"2M", date:"Jul 3" }, // placeholder if you later change format
+{ id:"r32_16", group:"Round of 32", home:"2J", away:"2K", date:"Jul 3" },
+
+// ROUND OF 16
+{ id:"r16_1", group:"Round of 16", home:"W R32-2", away:"W R32-5", date:"Jul 4" },
+{ id:"r16_2", group:"Round of 16", home:"W R32-1", away:"W R32-3", date:"Jul 4" },
+
+{ id:"r16_3", group:"Round of 16", home:"W R32-4", away:"W R32-6", date:"Jul 5" },
+{ id:"r16_4", group:"Round of 16", home:"W R32-7", away:"W R32-8", date:"Jul 5" },
+
+{ id:"r16_5", group:"Round of 16", home:"W R32-11", away:"W R32-12", date:"Jul 6" },
+{ id:"r16_6", group:"Round of 16", home:"W R32-9", away:"W R32-10", date:"Jul 6" },
+
+{ id:"r16_7", group:"Round of 16", home:"W R32-14", away:"W R32-16", date:"Jul 7" },
+{ id:"r16_8", group:"Round of 16", home:"W R32-13", away:"W R32-15", date:"Jul 7" },
+
+// QUARTER-FINALS
+{ id:"qf1", group:"Quarter-Finals", home:"W R16-1", away:"W R16-2", date:"Jul 9" },
+{ id:"qf2", group:"Quarter-Finals", home:"W R16-5", away:"W R16-6", date:"Jul 10" },
+{ id:"qf3", group:"Quarter-Finals", home:"W R16-3", away:"W R16-4", date:"Jul 11" },
+{ id:"qf4", group:"Quarter-Finals", home:"W R16-7", away:"W R16-8", date:"Jul 11" },
+
+// SEMI-FINALS
+{ id:"sf1", group:"Semi-Finals", home:"W QF-1", away:"W QF-2", date:"Jul 14" },
+{ id:"sf2", group:"Semi-Finals", home:"W QF-3", away:"W QF-4", date:"Jul 15" },
+
+// THIRD PLACE
+{ id:"3rd", group:"3rd Place", home:"Loser SF-1", away:"Loser SF-2", date:"Jul 18" },
+
+// FINAL
+{ id:"fin", group:"🏆 FINAL", home:"Winner SF-1", away:"Winner SF-2", date:"Jul 19" }
+  
 ];
 
 let state = {
@@ -713,8 +809,8 @@ function renderMatchCard(m) {
 
   const isOpen = openCards.has(m.id) ? 'open' : '';
   const lockBadge = locked
-    ? '<span class="match-lock">🔒 Closed</span>'
-    : '<span class="match-lock-open">🟢 Open</span>';
+  ? '<span class="match-lock">LOCKED</span>'
+  : '<span class="match-lock-open">OPEN</span>';
   return `<div class="match-card ${isOpen}" id="card-${m.id}">
     <div class="match-header" onclick="toggleCard('${m.id}')">
       <div class="match-teams">
