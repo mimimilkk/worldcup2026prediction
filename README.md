@@ -17,13 +17,13 @@ Predict the score for every FIFA World Cup 2026 match.
 | Exact score         | 5      |
 | Correct winner/draw | 3      |
 | Wrong prediction    | 0      |
+| Champion Prediction | 25     |
 
 ### Rules
 
-* Predictions are locked when the match starts.
+* Predictions are locked when the match starts.🔥
 * Scores are automatically synced across all devices.
 * Leaderboard updates automatically.
-* Matches within the next 3 days are highlighted 🔥.
 
 ## Features
 
