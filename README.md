@@ -1,4 +1,3 @@
-# worldcup2026
 # FIFA World Cup 2026 Prediction Game ⚽🏆
 
 A simple World Cup prediction game built with HTML, CSS, JavaScript, and Firebase.
