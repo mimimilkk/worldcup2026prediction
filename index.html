@@ -518,7 +518,8 @@ let state = {
 };
 
 let saveTimer = null;
-
+const openCards = new Set();
+  
 function setSyncStatus(status, text) {
   document.getElementById('sync-dot').className = status;
   document.getElementById('sync-text').textContent = text;
@@ -671,7 +672,6 @@ function renderMatchPredictions() {
 }
 
 function renderMatchCard(m) {
-  const openCards = new Set();
   const aH = m.actualHome, aA = m.actualAway;
   const hasResult = aH !== null && aA !== null;
   const scoreDisplay = hasResult
