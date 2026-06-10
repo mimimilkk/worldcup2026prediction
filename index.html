@@ -671,6 +671,7 @@ function renderMatchPredictions() {
 }
 
 function renderMatchCard(m) {
+  const openCards = new Set();
   const aH = m.actualHome, aA = m.actualAway;
   const hasResult = aH !== null && aA !== null;
   const scoreDisplay = hasResult
@@ -702,7 +703,8 @@ function renderMatchCard(m) {
       }).join('')}</tbody>
     </table>` : `<p style="font-size:0.8rem;color:var(--mid);padding:8px 0">Add members to enter predictions.</p>`;
 
-  return `<div class="match-card" id="card-${m.id}">
+  const isOpen = openCards.has(m.id) ? 'open' : '';
+  return `<div class="match-card ${isOpen}" id="card-${m.id}">
     <div class="match-header" onclick="toggleCard('${m.id}')">
       <div class="match-teams">
         <div class="team-name">${m.home}</div>
@@ -716,7 +718,17 @@ function renderMatchCard(m) {
   </div>`;
 }
 
-window.toggleCard = function(id) { document.getElementById('card-'+id).classList.toggle('open'); };
+window.toggleCard = function(id) {
+  const card = document.getElementById('card-'+id);
+
+  if (card.classList.contains('open')) {
+    card.classList.remove('open');
+    openCards.delete(id);
+  } else {
+    card.classList.add('open');
+    openCards.add(id);
+  }
+};
 
 window.setActual = function(matchId, side, val) {
   const m = state.matches.find(x => x.id === matchId);
