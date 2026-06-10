@@ -681,9 +681,9 @@ function renderMatchCard(m) {
     <div class="actual-score-row">
       <label>Actual</label>
       <div class="score-inputs">
-        <input class="score-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${aH !== null ? aH : ''}" oninput="setActual('${m.id}','home',this.value)">
+        <input class="score-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${aH !== null ? aH : ''}" onchange="setActual('${m.id}','home',this.value)">
         <span class="score-dash">–</span>
-        <input class="score-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${aA !== null ? aA : ''}" oninput="setActual('${m.id}','away',this.value)">
+        <input class="score-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${aA !== null ? aA : ''}" onchange="setActual('${m.id}','away',this.value)">
       </div>
     </div>
     <table class="predictions-table">
@@ -693,9 +693,9 @@ function renderMatchCard(m) {
         return `<tr>
           <td>${member}</td>
           <td><div class="pred-score-inputs">
-            <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${pred.home !== undefined && pred.home !== '' ? pred.home : ''}" oninput="setPred('${m.id}','${member.replace(/'/g,"\\'")}','home',this.value)">
+            <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${pred.home !== undefined && pred.home !== '' ? pred.home : ''}" onchange="setPred('${m.id}','${member.replace(/'/g,"\\'")}','home',this.value)">
             <span class="score-dash">–</span>
-            <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${pred.away !== undefined && pred.away !== '' ? pred.away : ''}" oninput="setPred('${m.id}','${member.replace(/'/g,"\\'")}','away',this.value)">
+            <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${pred.away !== undefined && pred.away !== '' ? pred.away : ''}" onchange="setPred('${m.id}','${member.replace(/'/g,"\\'")}','away',this.value)">
           </div></td>
           <td style="text-align:center">${ptsBadge(calcPoints(aH, aA, pred.home, pred.away))}</td>
         </tr>`;
