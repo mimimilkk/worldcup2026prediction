@@ -17,7 +17,8 @@ Predict the score for every FIFA World Cup 2026 match.
 | Exact score         | 5      |
 | Correct winner/draw | 3      |
 | Wrong prediction    | 0      |
-| Champion Prediction | 25     |
+
+/with +25 points bonus if you win Champion Prediction/
 
 ### Rules
 
