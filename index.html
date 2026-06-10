@@ -598,7 +598,7 @@ window.removeMember = function(name) {
 
 function renderMemberChips() {
   document.getElementById('member-chips').innerHTML = state.members.map(m => `
-    <div class="chip">👤 ${m}
+    <div class="chip">${m}
       <button class="remove-btn" onclick="removeMember('${m.replace(/'/g,"\\'")}')">✕</button>
     </div>`).join('');
 }
@@ -691,7 +691,7 @@ function renderMatchCard(m) {
       <tbody>${state.members.map(member => {
         const pred = (state.predictions[m.id] || {})[member] || {};
         return `<tr>
-          <td>👤 ${member}</td>
+          <td>${member}</td>
           <td><div class="pred-score-inputs">
             <input class="pred-num" type="number" inputmode="numeric" min="0" max="99" placeholder="0" value="${pred.home !== undefined && pred.home !== '' ? pred.home : ''}" onchange="setPred('${m.id}','${member.replace(/'/g,"\\'")}','home',this.value)">
             <span class="score-dash">–</span>
@@ -780,7 +780,7 @@ function renderLeaderboard() {
     const medal = i===0?'🥇':i===1?'🥈':i===2?'🥉':'';
     return `<div class="lb-row">
       <div class="lb-rank ${rc}">${medal||(i+1)}</div>
-      <div class="lb-name">👤 ${s.member}</div>
+      <div class="lb-name">${s.member}</div>
       <div class="lb-stats">
         <div class="lb-stat"><div class="val">${s.exact}</div><div class="lbl">Exact</div></div>
         <div class="lb-stat"><div class="val">${s.correct}</div><div class="lbl">Result</div></div>
