@@ -42,4 +42,4 @@ Predict the score for every FIFA World Cup 2026 match.
 
 ---
 
-Created by Mimi ⚽
+Created by AI, briefed by Mimi ⚽ — my first website ever, built without Java skills, powered entirely by technology and curiosity.
