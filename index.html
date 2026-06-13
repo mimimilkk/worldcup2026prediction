@@ -848,7 +848,7 @@ function renderMatchCard(m) {
   const lockBadge = locked
     ? '<span class="match-lock">LOCKED</span>'
     : '<span class="match-lock-open">OPEN</span>';
-  const tomorrowBadge = isTmrw ? '<span class="tomorrow-badge">📅 PREDICT TODAY</span>' : '';
+  const tomorrowBadge = '';
 
   return `<div class="match-card ${isOpen}${isTmrw ? ' tomorrow-match' : ''}" id="card-${m.id}">
     <div class="match-header" onclick="toggleCard('${m.id}')">
